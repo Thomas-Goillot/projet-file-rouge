@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const FooterComponent: React.FC = () => {
     return (
@@ -8,15 +9,15 @@ const FooterComponent: React.FC = () => {
                 <div className="flex justify-between items-center">
                     <div className="flex space-x-4">
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-600 hover:text-gray-800">
+                            <Link to="sessions" className="text-gray-600 hover:text-gray-800">
                                 Sessions 
-                            </a>
-                            <a href="#" className="text-gray-600 hover:text-gray-800">
+                            </Link>
+                            <Link to="#" className="text-gray-600 hover:text-gray-800">
                                 Mentions légales
-                            </a>
-                            <a href="#" className="text-gray-600 hover:text-gray-800">
+                            </Link>
+                            <Link to="contact" className="text-gray-600 hover:text-gray-800">
                                 Nous contacter
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="text-gray-600">

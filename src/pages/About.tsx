@@ -1,11 +1,7 @@
-import React from "react";
+import AboutComponent from "../components/about/AboutComponent";
 
-const About = () => {
-  return (
-    <div>
-      <h1>About Page</h1>
-    </div>
-  );
+const Contact = () => {
+  return <AboutComponent />;
 };
 
-export default About;
+export default Contact;
