@@ -12,7 +12,7 @@ import LegalsComponent from "./components/legals/LegalsComponent";
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
         <NavBarComponent />
 
         <Routes>
