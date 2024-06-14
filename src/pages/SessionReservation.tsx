@@ -66,7 +66,7 @@ const SessionReservation = () => {
     const reservationData = {
       ...data,
       participants,
-      sessionId: session.id, // Add session ID to the reservation data
+      sessionId: session?.id,
     };
 
     fetch("http://localhost:3000/reservations", {
