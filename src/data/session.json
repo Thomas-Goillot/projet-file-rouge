@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "image": "/images/lalettrecachee.png",
+    "image": "/images/lalettrecachee.webp",
     "title": "La Lettre Cachée",
     "description": "Dans une ambiance de film noir, vous incarnez un détective privé qui doit résoudre une affaire de meurtre. Vous devrez interroger les suspects et résoudre des énigmes pour découvrir le coupable.",
     "price": 20
   },
   {
     "id": 2,
-    "image": "/images/leportraitdesancetres.png",
+    "image": "/images/leportraitdesancetres.webp",
     "title": "Le Portrait des Ancêtres",
     "description": "Vous êtes un archéologue qui a découvert un portrait ancien dans une crypte. Vous devrez résoudre des énigmes pour découvrir l'histoire de la famille qui y est représentée.",
     "price": 25
   },
   {
     "id": 3,
-    "image": "/images/larecetteoubliee.png",
+    "image": "/images/larecetteoubliee.webp",
     "title": "La Recette Oubliée",
     "description": "Vous êtes un chef cuisinier qui a trouvé une recette ancienne dans un vieux livre de cuisine. Vous devrez résoudre des énigmes pour retrouver les ingrédients et préparer le plat mystérieux.",
     "price": 30
