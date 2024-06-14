@@ -8,8 +8,8 @@ const Sessions = () => {
     const [sessions, setSessions] = useState<Session[]>([]);
 
     useEffect(() => {
-        setSessions(data);
-    });
+      setSessions(data);
+    }, []);
 
   return (
 
