@@ -76,5 +76,23 @@
       "password": "123456",
       "admin": false
     }
+  ],
+  "reservations": [
+    {
+      "id": "ab13",
+      "email": "thomas@fivly.fr",
+      "participants": 1,
+      "date": "2024-06-21",
+      "creneaux": "11h00",
+      "sessionId": "2"
+    },
+    {
+      "id": "5e8b",
+      "email": "thomadgllt@gmail.com",
+      "participants": 4,
+      "date": "2024-06-28",
+      "creneaux": "19h00",
+      "sessionId": "2"
+    }
   ]
 }

@@ -5,7 +5,7 @@ const SessionCardComponent = ({ session }: { session: Session }) => {
   return (
     <div
       key={session.id}
-      className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      className="max-w-sm bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
     >
       <a href="#">
         <img className="rounded-t-lg" src={session.image} alt="" />
