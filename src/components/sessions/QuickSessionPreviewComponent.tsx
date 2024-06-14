@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import data from "../../data/session.json";
+import { SetStateAction, useEffect, useState } from "react";
 import { Session } from "../../types/Session";
 import { Link } from "react-router-dom";
 
@@ -7,8 +6,10 @@ const QuickSessionPreviewComponent = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
 
   useEffect(() => {
-    setSessions(data);
-  }, []); // Added an empty dependency array to avoid infinite loop
+    fetch("http://localhost:3000/sessions?_limit=3")
+      .then((response) => response.json())
+      .then((data) => setSessions(data));
+  }, []);
 
   return (
     <section className="bg-white dark:bg-gray-900">
@@ -30,11 +31,11 @@ const QuickSessionPreviewComponent = () => {
         </header>
 
         <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {sessions.map((session) => (
+          {sessions && sessions.map((session) => (
             <li key={session.id}>
               {" "}
               {/* Added a key prop for list item */}
-              <a href="#" className="group relative block">
+              <span className="group relative block">
                 <img
                   src={session.image}
                   alt=""
@@ -45,15 +46,18 @@ const QuickSessionPreviewComponent = () => {
                   <h3 className="text-xl font-medium text-white">
                     {session.title}
                   </h3>
+                  <small className="text-sm text-gray-400">
+                    ({session.theme})
+                  </small>
 
                   <Link
                     to={`/session/${session.id}`}
                     className="mt-1.5 inline-block bg-black dark:bg-white px-5 py-3 text-xs font-medium uppercase tracking-wide text-white dark:text-black"
                   >
-                    Voir plus
+                    Réserver
                   </Link>
                 </div>
-              </a>
+              </span>
             </li>
           ))}
         </ul>

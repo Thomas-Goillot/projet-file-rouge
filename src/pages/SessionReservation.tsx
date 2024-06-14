@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import data from "../data/session.json";
 import { Session } from "../types/Session";
 import { useParams } from "react-router-dom";
 import SessionCardComponent from "../components/sessions/SessionCardComponent";
@@ -7,17 +6,19 @@ import ContactInputBoxComponent from "../components/contact/ContactInputBoxCompo
 import ContactTextAreaComponent from "../components/contact/ContactTextAreaComponent";
 
 const SessionReservation = () => {
-    const [sessions, setSessions] = useState<Session[]>([]);
+  const [sessions, setSessions] = useState<Session[]>([]);
 
-    useEffect(() => {
-        setSessions(data);
-    });
+  useEffect(() => {
+    fetch("http://localhost:3000/sessions?_limit=3")
+      .then((response) => response.json())
+      .then((data) => setSessions(data));
+  }, []);
 
-    let { id } = useParams();
+    const { id } = useParams();
 
     if(!id) return (<div>Session not found</div>);
 
-    const session = sessions.find((session) => session.id === parseInt(id));
+    const session = sessions.find((session) => session.id == id);
 
     return (
       <div className="grid grid-cols-1 gap-6 px-5 py-10 mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-4">
