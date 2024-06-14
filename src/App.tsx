@@ -7,6 +7,7 @@ import FooterComponent from "./components/FooterComponent";
 import About from "./pages/About";
 import Sessions from "./pages/Sessions";
 import SessionReservation from "./pages/SessionReservation";
+import LegalsComponent from "./components/legals/LegalsComponent";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/sessions" element={<Sessions />} />
           <Route path="/session/:id" element={<SessionReservation />} />
+          <Route path="legals" element={<LegalsComponent/>} />
         </Routes>
       </div>
 

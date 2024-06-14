@@ -12,7 +12,7 @@ const FooterComponent: React.FC = () => {
                             <Link to="sessions" className="text-gray-600 hover:text-gray-800">
                                 Sessions 
                             </Link>
-                            <Link to="#" className="text-gray-600 hover:text-gray-800">
+                            <Link to="legals" className="text-gray-600 hover:text-gray-800">
                                 Mentions légales
                             </Link>
                             <Link to="contact" className="text-gray-600 hover:text-gray-800">
