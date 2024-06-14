@@ -1,8 +1,46 @@
 import { FaHome, FaMailBulk, FaPhone } from "react-icons/fa";
 import ContactInputBoxComponent from "./ContactInputBoxComponent";
 import ContactTextAreaComponent from "./ContactTextAreaComponent";
+import { useState } from "react";
 
 const ContactComponent = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Error sending message.");
+    }
+  };
+
   return (
     <section className="relative z-10 overflow-hidden bg-white py-20 px-4 dark:bg-gray-900">
       <div className="container py-3">
@@ -65,27 +103,31 @@ const ContactComponent = () => {
           </div>
           <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
             <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800 sm:p-12">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <ContactInputBoxComponent
                   type="text"
                   name="name"
                   placeholder="Votre nom"
+                  onChange={handleChange}
                 />
                 <ContactInputBoxComponent
-                  type="text"
+                  type="mail"
                   name="email"
                   placeholder="Votre email"
+                  onChange={handleChange}
                 />
                 <ContactInputBoxComponent
                   type="text"
                   name="phone"
                   placeholder="Votre numéro de téléphone"
+                  onChange={handleChange}
                 />
                 <ContactTextAreaComponent
                   row={6}
                   placeholder="Votre Message"
-                  name="details"
+                  name="message"
                   defaultValue=""
+                  onChange={handleChange}
                 />
                 <div>
                   <button

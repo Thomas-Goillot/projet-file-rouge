@@ -94,5 +94,14 @@
       "creneaux": "19h00",
       "sessionId": "2"
     }
+  ],
+  "contacts": [
+    {
+      "id": "16c5",
+      "name": "test",
+      "email": "test",
+      "phone": "0781989963",
+      "message": "messageecde"
+    }
   ]
 }
