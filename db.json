@@ -93,6 +93,14 @@
       "date": "2024-06-28",
       "creneaux": "19h00",
       "sessionId": "2"
+    },
+    {
+      "id": "462b",
+      "email": "thomadgllt@gmail.com",
+      "participants": 3,
+      "date": "2024-07-02",
+      "creneaux": "11h00",
+      "sessionId": "2"
     }
   ],
   "contacts": [

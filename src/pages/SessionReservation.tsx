@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Session } from "../types/Session";
 import { useParams } from "react-router-dom";
 import SessionCardComponent from "../components/sessions/SessionCardComponent";
@@ -121,6 +121,7 @@ const SessionReservation = () => {
               type="email"
               placeholder="Email"
               name="email"
+              onChange={() => {}}
             />
           </div>
 
@@ -132,6 +133,7 @@ const SessionReservation = () => {
               type="number"
               placeholder="Nombre de participants"
               name="participants"
+              onChange={() => {}}
             />
           </div>
 
@@ -155,7 +157,7 @@ const SessionReservation = () => {
             <select
               name="creneaux"
               id="creneaux"
-              className="w-full rounded border border-stroke px-[14px] py-3 text-base outline-none focus:border-primary dark:border-dark-3 text-gray-900 dark:text-white"
+              className="w-full rounded border border-stroke px-[14px] py-3 text-base outline-none focus:border-primary dark:border-dark-3 text-gray-900"
               disabled={!selectedDate}
               defaultValue=""
             >
