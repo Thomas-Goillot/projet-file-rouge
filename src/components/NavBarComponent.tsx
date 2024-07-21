@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 
-const NavBarComponent: React.FC = () => {
+interface NavBarProps {
+  isLoggedIn: boolean;
+}
+
+const NavBarComponent: React.FC<NavBarProps> = ({
+  isLoggedIn,
+}) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const userCookie = Cookies.get("user");
-    if (userCookie) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -26,7 +21,7 @@ const NavBarComponent: React.FC = () => {
   };
 
   return (
-    <nav className="bg-gray-800 dark:bg-gray-900">
+    <nav className="bg-gray-900 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -39,15 +34,14 @@ const NavBarComponent: React.FC = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  to="/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Home
-                </Link>
-
                 {!isLoggedIn ? (
-                  <div>
+                  <>
+                    <Link
+                      to="/"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Home
+                    </Link>
                     <Link
                       to="/sessions"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -67,14 +61,20 @@ const NavBarComponent: React.FC = () => {
                       Contact
                     </Link>
                     <Link
-                      to={"/auth/login"}
+                      to="/auth/login"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Connexion
                     </Link>
-                  </div>
+                  </>
                 ) : (
                   <>
+                    <Link
+                      to="/admin"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Home
+                    </Link>
                     <Link
                       to="/admin/manage-reservations"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -82,7 +82,7 @@ const NavBarComponent: React.FC = () => {
                       Gestion des créneaux des utilisateurs
                     </Link>
                     <Link
-                      to="/admin/manage-employees"
+                      to="/admin/manage-users"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Gestion des comptes employé
