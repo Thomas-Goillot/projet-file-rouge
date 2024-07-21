@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 const ContactTextAreaComponent = ({ row, placeholder, name, defaultValue, onChange }: { row: number, placeholder: string, name: string, defaultValue: string, onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void }) => {
   return (

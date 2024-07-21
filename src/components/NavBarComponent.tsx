@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const NavBarComponent: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const userCookie = Cookies.get("user");
+    if (userCookie) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -34,24 +45,62 @@ const NavBarComponent: React.FC = () => {
                 >
                   Home
                 </Link>
-                <Link
-                  to="/sessions"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Nos Sessions
-                </Link>
-                <Link
-                  to="/about"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  A propos
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Contact
-                </Link>
+
+                {!isLoggedIn ? (
+                  <div>
+                    <Link
+                      to="/sessions"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Nos Sessions
+                    </Link>
+                    <Link
+                      to="/about"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      A propos
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Contact
+                    </Link>
+                    <Link
+                      to={"/auth/login"}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Connexion
+                    </Link>
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      to="/admin/manage-reservations"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Gestion des créneaux des utilisateurs
+                    </Link>
+                    <Link
+                      to="/admin/manage-employees"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Gestion des comptes employé
+                    </Link>
+                    <Link
+                      to="/admin/manage-reservation"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Gestion des sessions
+                    </Link>
+                    <Link
+                      to="/auth/logout"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Déconnexion
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

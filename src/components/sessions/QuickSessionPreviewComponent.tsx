@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Session } from "../../types/Session";
 import { Link } from "react-router-dom";
 

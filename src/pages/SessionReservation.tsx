@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Session } from "../types/Session";
 import { useParams } from "react-router-dom";
 import SessionCardComponent from "../components/sessions/SessionCardComponent";
@@ -77,7 +77,7 @@ const SessionReservation = () => {
       body: JSON.stringify(reservationData),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(() => {
         alert("Réservation effectuée avec succès.");
       })
       .catch((error) => {
