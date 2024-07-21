@@ -76,6 +76,12 @@ const NavBarComponent: React.FC<NavBarProps> = ({
                       Home
                     </Link>
                     <Link
+                      to="/admin/manage-sessions"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Gestion des sessions
+                    </Link>
+                    <Link
                       to="/admin/manage-reservations"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
@@ -88,10 +94,10 @@ const NavBarComponent: React.FC<NavBarProps> = ({
                       Gestion des comptes employé
                     </Link>
                     <Link
-                      to="/admin/manage-sessions"
+                      to="/admin/contacts"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Gestion des sessions
+                      Gestion des contacts
                     </Link>
                     <Link
                       to="/auth/logout"

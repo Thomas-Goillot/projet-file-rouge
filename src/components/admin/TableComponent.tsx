@@ -1,22 +1,16 @@
 import React from "react";
 
-interface Column {
-  header: string;
-  accessor: string;
-}
-
-interface Action {
-  label: string;
-  onClick: (row: any) => void;
-}
-
-interface TableProps {
+interface TableComponentProps {
   data: any[];
-  columns: Column[];
-  actions?: Action[];
+  columns: { header: string; accessor: string; cell?: (row: any) => any }[];
+  actions: { label: string; onClick: (item: any) => void }[];
 }
 
-const TableComponent: React.FC<TableProps> = ({ data, columns, actions }) => {
+const TableComponent: React.FC<TableComponentProps> = ({
+  data,
+  columns,
+  actions,
+}) => {
   return (
     <div className="overflow-x-auto shadow-md rounded-lg">
       <table className="min-w-full bg-white">
@@ -25,13 +19,13 @@ const TableComponent: React.FC<TableProps> = ({ data, columns, actions }) => {
             {columns.map((column) => (
               <th
                 key={column.accessor}
-                className="py-3 px-4 uppercase font-semibold text-sm"
+                className="w-1/4 py-3 px-4 uppercase font-semibold text-sm"
               >
                 {column.header}
               </th>
             ))}
-            {actions && (
-              <th className="py-3 px-4 uppercase font-semibold text-sm">
+            {actions.length > 0 && (
+              <th className="w-1/4 py-3 px-4 uppercase font-semibold text-sm">
                 Actions
               </th>
             )}
@@ -41,17 +35,20 @@ const TableComponent: React.FC<TableProps> = ({ data, columns, actions }) => {
           {data.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((column) => (
-                <td key={column.accessor} className="py-3 px-4 text-center">
-                  {row[column.accessor]}
+                <td
+                  key={column.accessor}
+                  className="w-1/4 py-3 px-4 text-center"
+                >
+                  {column.cell ? column.cell(row) : row[column.accessor]}
                 </td>
               ))}
-              {actions && (
-                <td className="py-3 px-4 text-center">
+              {actions.length > 0 && (
+                <td className="w-1/4 py-3 px-4 text-center">
                   {actions.map((action, actionIndex) => (
                     <button
                       key={actionIndex}
                       onClick={() => action.onClick(row)}
-                      className="bg-blue-500 text-white px-2 py-1 rounded mr-2"
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mx-1"
                     >
                       {action.label}
                     </button>

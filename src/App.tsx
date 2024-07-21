@@ -17,6 +17,7 @@ import DashBoardPage from "./pages/admin/DashBoardPage";
 import ReservationPage from "./pages/admin/ReservationPage";
 import UsersPage from "./pages/admin/UserPage";
 import SessionPage from "./pages/admin/SessionPage";
+import ContactPage from "./pages/admin/ContactPage";
 
 const App = () => {
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/admin/manage-reservations" element={<AuthGuard><ReservationPage/></AuthGuard>} />
           <Route path="/admin/manage-users" element={<AuthGuard><UsersPage/></AuthGuard>} /> 
           <Route path="/admin/manage-sessions" element={<AuthGuard><SessionPage/></AuthGuard>} />
+          <Route path="/admin/contacts" element={<AuthGuard><ContactPage/></AuthGuard>} />
           <Route path="/auth" element={<Login />} />
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />} />

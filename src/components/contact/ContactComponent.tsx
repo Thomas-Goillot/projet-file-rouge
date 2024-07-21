@@ -9,6 +9,7 @@ const ContactComponent = () => {
     email: "",
     phone: "",
     message: "",
+    isRead: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,7 +32,7 @@ const ContactComponent = () => {
       });
       if (response.ok) {
         alert("Message sent successfully!");
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", message: "", isRead: false });
       } else {
         alert("Failed to send message.");
       }
