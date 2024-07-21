@@ -77,14 +77,14 @@ const UsersPage: React.FC = () => {
 
   const columns = [
     { header: "ID", accessor: "id" },
-    { header: "Email", accessor: "email" },
-    { header: "Name", accessor: "name" },
-    { header: "Admin", accessor: "admin" },
+    { header: "Mail", accessor: "email" },
+    { header: "Nom", accessor: "name" },
+    { header: "Administrateur", accessor: "admin" },
   ];
 
   const actions = [
-    { label: "Edit", onClick: setEditingUser },
-    { label: "Delete", onClick: handleDelete },
+    { label: "Modifier", onClick: setEditingUser },
+    { label: "Supprimer", onClick: handleDelete },
   ];
 
   if (loading) {

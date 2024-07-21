@@ -48,7 +48,7 @@ const ReservationPage: React.FC = () => {
   ];
 
   const actions = [
-    { label: "Delete", onClick: handleDelete },
+    { label: "Supprimer", onClick: handleDelete },
   ];
 
   if (loading) {
