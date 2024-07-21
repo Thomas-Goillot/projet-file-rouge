@@ -88,7 +88,7 @@ const NavBarComponent: React.FC<NavBarProps> = ({
                       Gestion des comptes employé
                     </Link>
                     <Link
-                      to="/admin/manage-reservation"
+                      to="/admin/manage-sessions"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Gestion des sessions
