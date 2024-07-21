@@ -90,7 +90,6 @@ const SessionPage: React.FC = () => {
     { header: "Image", accessor: "image" },
     { header: "Theme", accessor: "theme" },
     { header: "Title", accessor: "title" },
-    { header: "Description", accessor: "description" },
     { header: "Participants Max", accessor: "nbParticipantsMax" },
     { header: "Durée", accessor: "duree" },
     { header: "Prix", accessor: "price" },
